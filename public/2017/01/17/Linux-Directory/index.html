@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Muscleape" />
+
+
+
+<meta name="description" content="Linux系统常用目录结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用目录结构">
+<meta property="og:url" content="http://yoursite.com/2017/01/17/Linux-Directory/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux系统常用目录结构">
+<meta property="og:updated_time" content="2017-01-22T02:47:33.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux常用目录结构">
+<meta name="twitter:description" content="Linux系统常用目录结构">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Linux常用目录结构 | Hexo</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/Muscleape.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Muscleape</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/Muscleape" title="GitHub"></a>
+                            
+                                <a class="fa StackOverflow" href="http://stackoverflow.com/users/7098479/muscleape" title="StackOverflow"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS6-5/">CentOS6.5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS7/">CentOS7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GoLang/">GoLang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL5-6/">MySQL5.6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Samba/">Samba</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SeLinux/">SeLinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-V/">System_V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMWare/">VMWare</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VirtualBox/">VirtualBox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crontab/">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/">image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/">jdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmdk/">vmdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/共享/">共享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/启动模式/">启动模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片/">图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/定时任务/">定时任务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开始/">开始</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统信息/">系统信息</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划任务/">计划任务</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于折腾</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Muscleape</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/Muscleape.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Muscleape</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Muscleape" title="GitHub"></a>
+                            
+                                <a class="fa StackOverflow" target="_blank" href="http://stackoverflow.com/users/7098479/muscleape" title="StackOverflow"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-Linux-Directory" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/17/Linux-Directory/" class="article-date">
+      <time datetime="2017-01-17T13:34:29.000Z" itemprop="datePublished">2017-01-17</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux常用目录结构
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><excert in="" index="" |="" 首页摘要=""><br>Linux系统常用目录结构<br><a id="more"></a></excert></p>
+<the rest="" of="" contents="" |="" 余下全文="">
+
+<blockquote>
+<p>此文引用自51CTO博客，博主<strong>snail_hf</strong>，原文地址<a href="http://ctohf.blog.51cto.com/4059147/907442" target="_blank" rel="external">《Linux系统目录详解（全而易懂）》</a></p>
+</blockquote>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><h3 id=""><a href="#" class="headerlink" title="/"></a>/</h3><p>根目录，处于Linux系统树形结构的最顶端，它是Linux文件系统的入口，所有的目录、文件、设备都在<strong>/</strong>之下。</p>
+<h3 id="bin"><a href="#bin" class="headerlink" title="/bin"></a>/bin</h3><p>bin是Binary（二进制）的缩写，存放着Linux系统命令。</p>
+<h3 id="dev"><a href="#dev" class="headerlink" title="/dev"></a>/dev</h3><p>dev是Device的缩写。存放的是Linux的外部设备，在Linux中访问设备的方式和访问文件的方式是相同的。<br><strong>（注意：设备文件不是驱动程序。过去，在添加新磁盘或设备后，往往需要手动增加设备文件。现在通常我们不需要手动增加设备文件，运行一下下面的命令，系统就会自动配置相应的设备。）</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service kudzu start</div></pre></td></tr></table></figure></p>
+<h3 id="home"><a href="#home" class="headerlink" title="/home"></a>/home</h3><p>Linux用户的主目录。在Linux系统中，每个用户都有自己的一个目录，一般该目录名是以用户的账号命名的。</p>
+<h3 id="lib"><a href="#lib" class="headerlink" title="/lib"></a>/lib</h3><p>存放系统最基本的动态链接共享库，包含许多被/bin和/sbin中的程序使用的库文件，目录/usr/lib/中包含有更多用于用户程序的库文件。作用类似于windows里的dll文件，几乎所有的应用程序都需要用到这些共享库。</p>
+<h3 id="media"><a href="#media" class="headerlink" title="/media"></a>/media</h3><p>Linux系统自动识别的一些设备，例如：U盘、光驱、移动硬盘等。Linux会把识别的设备挂载到这个目录下。</p>
+<h3 id="mnt"><a href="#mnt" class="headerlink" title="/mnt"></a>/mnt</h3><p>系统提供该目录是为了让用户临时挂载别的文件系统的，可以将光驱挂载到/mnt/上，然后进入该目录就可以查看光驱里的内容。</p>
+<h3 id="opt"><a href="#opt" class="headerlink" title="/opt"></a>/opt</h3><p>数据额外安装软件所摆放的目录。默认为空。</p>
+<h3 id="root"><a href="#root" class="headerlink" title="/root"></a>/root</h3><p>超级管理员用户的主目录。</p>
+<h3 id="selinux"><a href="#selinux" class="headerlink" title="/selinux"></a>/selinux</h3><p>这个目录是RedHat/CentOS所特有的目录，SeLinux是一种安全机制，较复杂。该目录用于存放SeLinux相关的文件。<br><strong> 一般我们在安装操作系统的时候都禁用SeLinux </strong></p>
+<h3 id="sys"><a href="#sys" class="headerlink" title="/sys"></a>/sys</h3><p>这个是Linux2.6内核的一个很大的变化。该目录下安装了2.6内核中新出现的文件系统sysfs,sysfs文件系统集成了下面3中文件系统的信息。该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。</p>
+<ol>
+<li>针对进程信息的proc文件系统</li>
+<li>针对设备的devfs文件系统</li>
+<li>针对伪终端的devpts文件系统</li>
+</ol>
+<h3 id="usr"><a href="#usr" class="headerlink" title="/usr"></a>/usr</h3><p>包括与系统用户直接有关的文件和目录，例如医用程序及支持它们的库文件。类似于windows下的program files目录。</p>
+<h3 id="boot"><a href="#boot" class="headerlink" title="/boot"></a>/boot</h3><p>包括内核和其它系统启动期间使用的文件。是启动Linux时使用的核心文件，有链接文件和镜像文件。</p>
+<h3 id="etc"><a href="#etc" class="headerlink" title="/etc"></a>/etc</h3><p>存放系统配置文件和目录<strong> （注意：经常使用该目录） </strong></p>
+<h3 id="lost-found"><a href="#lost-found" class="headerlink" title="/lost+found"></a>/lost+found</h3><p>默认为空，被FSCK用来放置零散文件（没有名称的文件）。当系统非法关机后，这里就会存放一些文件。</p>
+<blockquote>
+<p>FSCK(file system check)用来检查和维护不一致的文件系统。若系统掉电或磁盘发生问题，可以利用fsck命令对文件系统进行检查。</p>
+</blockquote>
+<h3 id="misc"><a href="#misc" class="headerlink" title="/misc"></a>/misc</h3><p>存放杂项文件或目录，即那些用途或含义不明确的文件或目录可以存放在该目录下。</p>
+<h3 id="proc"><a href="#proc" class="headerlink" title="/proc"></a>/proc</h3><p>操作系统运行时，进程（正在运行中的程序）信息及内核信息（如：CPU、硬盘分区、内存信息等）存放在这里。/proc目录是伪装的文件系统proc的挂载目录，proc并不是真正的文件系统。因此这个目录是一个虚拟的目录，它是系统内存的映射，我们可以通过直接访问这个目录来获取系统信息。也就是说， <strong> 这个目录的内容不在磁盘上而是在内存里。 </strong></p>
+<h3 id="sbin"><a href="#sbin" class="headerlink" title="/sbin"></a>/sbin</h3><p>大多数涉及到系统管理的命令都存放在该目录中，它是超级权限用户root的可执行命令存放地，普通用户无权限执行这个目录下的命令，凡是目录sbin中包含的命令都是root权限才能执行的。</p>
+<h3 id="srv"><a href="#srv" class="headerlink" title="/srv"></a>/srv</h3><p>该目录存放一些服务启动之后需要提取的数据。</p>
+<h3 id="tmp"><a href="#tmp" class="headerlink" title="/tmp"></a>/tmp</h3><p>该目录用于存放临时文件，有时用户运行程序的时候，会产生一些临时文件。/tmp就是用来存放临时文件的。/var/tmp目录和该目录的作用是相似的。</p>
+<h3 id="var"><a href="#var" class="headerlink" title="/var"></a>/var</h3><p>该目录的内容是经常变动的，/var/下有/var/log目录用来存放系统日志的目录。/var/www目录用来定义Apache服务站点存放目录。/var/lib用来存放一些库文件。</p>
+<h2 id="其它重要系统目录"><a href="#其它重要系统目录" class="headerlink" title="其它重要系统目录"></a>其它重要系统目录</h2><h3 id="usr-bin"><a href="#usr-bin" class="headerlink" title="/usr/bin"></a>/usr/bin</h3><p>这个目录是可执行程序的目录，普通用户就有权限执行。当我们从系统自带的软件包安装一个程序时，他的可执行文件大多存放在这个目录。相似的目录是/usr/local/bin目录。有时/usr/bin中的文件是/usr/local/bin的链接文件。</p>
+<h3 id="usr-sbin"><a href="#usr-sbin" class="headerlink" title="/usr/sbin"></a>/usr/sbin</h3><p>这个目录也是可执行程序的目录，但大多数存放涉及系统管理的命令。只有root权限才能执行，相似的目录是/sbin或/usr/local/sbin或/usr/X11R6/sbin等。</p>
+<h3 id="usr-src"><a href="#usr-src" class="headerlink" title="/usr/src"></a>/usr/src</h3><p>内核源码默认的放置目录</p>
+<h3 id="proc-cpuinfo"><a href="#proc-cpuinfo" class="headerlink" title="/proc/cpuinfo"></a>/proc/cpuinfo</h3><p>关于处理器的信息，如类型、厂家、型号和性能等。例如可通过下面的命令查看<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat /proc/cpuinfo</div></pre></td></tr></table></figure></p>
+<h3 id="proc-devices"><a href="#proc-devices" class="headerlink" title="/proc/devices"></a>/proc/devices</h3><p>当前运行内核所配置的所有设备清单</p>
+<h3 id="proc-filesystems"><a href="#proc-filesystems" class="headerlink" title="/proc/filesystems"></a>/proc/filesystems</h3><p>当前运行内核所配置的文件系统</p>
+<h3 id="proc-dma"><a href="#proc-dma" class="headerlink" title="/proc/dma"></a>/proc/dma</h3><p>当前正在使用的DMA通道。</p>
+<blockquote>
+<p>DMA（Direct Memory Access），即直接存储器存取，是一种快速传送数据的机制。数据传递可以从适配卡到内存，从内存到适配卡或从一段内存到另一段内存。</p>
+</blockquote>
+<h3 id="proc-interrupts"><a href="#proc-interrupts" class="headerlink" title="/proc/interrupts"></a>/proc/interrupts</h3><p>正在使用的中断和曾经有多少个中断</p>
+<h3 id="proc-ioports"><a href="#proc-ioports" class="headerlink" title="/proc/ioports"></a>/proc/ioports</h3><p>当前正在使用的I/O端口</p>
+<h3 id="etc-init-d"><a href="#etc-init-d" class="headerlink" title="/etc/init.d"></a>/etc/init.d</h3><p>这个目录是用来存放系统或服务器以System V模式启动的脚本，这在以System V模式启动或初始化的系统中常见。比如RedHat Fedora</p>
+<h3 id="etc-xinetd-d"><a href="#etc-xinetd-d" class="headerlink" title="/etc/xinetd.d"></a>/etc/xinetd.d</h3><p>如果服务器是通过xinetd模式运行的，它的脚本要放在这个目录下。有些系统没有这个目录，比如Slackware,有些老的版本也没有。在RedHat Fedora中比较新的版本中存在。</p>
+<h3 id="etc-rc-d"><a href="#etc-rc-d" class="headerlink" title="/etc/rc.d"></a>/etc/rc.d</h3><p>这个是Slackware发行版中的一个目录，是BSD方式启动脚本的存放地，比如定义网卡，服务器开启脚本等。</p>
+<h3 id="etc-Xll"><a href="#etc-Xll" class="headerlink" title="/etc/Xll"></a>/etc/Xll</h3><p>是X-Window相关的配置文件存放地</p>
+<h3 id="usr-local"><a href="#usr-local" class="headerlink" title="/usr/local"></a>/usr/local</h3><p>这个目录一般是用来存放用户自编译安装软件的存放目录。一般是通过源码包安装的软件，如果没有特别指定安装目录的话，一般是安装在这个目录中。</p>
+<h3 id="usr-lib"><a href="#usr-lib" class="headerlink" title="/usr/lib"></a>/usr/lib</h3><p>该目录和/lib目录相似，是库文件的存储目录。存放一些常用的共享库。</p>
+<h3 id="usr-share"><a href="#usr-share" class="headerlink" title="/usr/share"></a>/usr/share</h3><p>该目录用于存放系统共用的东西，比如/usr/share/fonts是字体目录，是用户都共用的。</p>
+<h3 id="usr-share-doc"><a href="#usr-share-doc" class="headerlink" title="/usr/share/doc"></a>/usr/share/doc</h3><p>该目录是Linux共享文档的存放地。</p>
+<h3 id="usr-share-man"><a href="#usr-share-man" class="headerlink" title="/usr/share/man"></a>/usr/share/man</h3><p>该目录是共享的帮助文件的存放地。</p>
+<h3 id="var-adm"><a href="#var-adm" class="headerlink" title="/var/adm"></a>/var/adm</h3><p>比如软件包安装信息、日志、管理信息等就存放在该目录下，在Slackware操作系统中是有这个目录的。在Fedora中好象没有。</p>
+<h3 id="var-log"><a href="#var-log" class="headerlink" title="/var/log"></a>/var/log</h3><p>该目录用于存放系统日志。</p>
+<h3 id="var-spool"><a href="#var-spool" class="headerlink" title="/var/spool"></a>/var/spool</h3><p>打印机、邮件、代理服务器等假脱机目录存放在该目录下。</p>
+<blockquote>
+<p>本文出自 “蜗牛” 博客，请务必保留此出处<a href="http://ctohf.blog.51cto.com/4059147/907442" target="_blank" rel="external">http://ctohf.blog.51cto.com/4059147/907442</a></p>
+</blockquote>
+</the>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/01/17/Linux-Directory/">Linux常用目录结构</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Muscleape</a></p>
+        <p><span>发布时间:</span>2017-01-17, 21:34:29</p>
+        <p><span>最后更新:</span>2017-01-22, 10:47:33</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/17/Linux-Directory/" title="Linux常用目录结构">http://yoursite.com/2017/01/17/Linux-Directory/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/01/17/Linux-Directory/　　作者: Muscleape" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/01/20/System-V/">
+                    Linux系统启动方式System-V
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/01/16/CentOSSunJDK/">
+                    CentOS7系统卸载自带的OpenJDK并安装SUNJDK
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#目录结构"><span class="toc-number">1.</span> <span class="toc-text">目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text">/</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bin"><span class="toc-number">1.2.</span> <span class="toc-text">/bin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dev"><span class="toc-number">1.3.</span> <span class="toc-text">/dev</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#home"><span class="toc-number">1.4.</span> <span class="toc-text">/home</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lib"><span class="toc-number">1.5.</span> <span class="toc-text">/lib</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#media"><span class="toc-number">1.6.</span> <span class="toc-text">/media</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mnt"><span class="toc-number">1.7.</span> <span class="toc-text">/mnt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#opt"><span class="toc-number">1.8.</span> <span class="toc-text">/opt</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#root"><span class="toc-number">1.9.</span> <span class="toc-text">/root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#selinux"><span class="toc-number">1.10.</span> <span class="toc-text">/selinux</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sys"><span class="toc-number">1.11.</span> <span class="toc-text">/sys</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usr"><span class="toc-number">1.12.</span> <span class="toc-text">/usr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#boot"><span class="toc-number">1.13.</span> <span class="toc-text">/boot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc"><span class="toc-number">1.14.</span> <span class="toc-text">/etc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lost-found"><span class="toc-number">1.15.</span> <span class="toc-text">/lost+found</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#misc"><span class="toc-number">1.16.</span> <span class="toc-text">/misc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc"><span class="toc-number">1.17.</span> <span class="toc-text">/proc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sbin"><span class="toc-number">1.18.</span> <span class="toc-text">/sbin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#srv"><span class="toc-number">1.19.</span> <span class="toc-text">/srv</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tmp"><span class="toc-number">1.20.</span> <span class="toc-text">/tmp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var"><span class="toc-number">1.21.</span> <span class="toc-text">/var</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其它重要系统目录"><span class="toc-number">2.</span> <span class="toc-text">其它重要系统目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#usr-bin"><span class="toc-number">2.1.</span> <span class="toc-text">/usr/bin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usr-sbin"><span class="toc-number">2.2.</span> <span class="toc-text">/usr/sbin</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usr-src"><span class="toc-number">2.3.</span> <span class="toc-text">/usr/src</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-cpuinfo"><span class="toc-number">2.4.</span> <span class="toc-text">/proc/cpuinfo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-devices"><span class="toc-number">2.5.</span> <span class="toc-text">/proc/devices</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-filesystems"><span class="toc-number">2.6.</span> <span class="toc-text">/proc/filesystems</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-dma"><span class="toc-number">2.7.</span> <span class="toc-text">/proc/dma</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-interrupts"><span class="toc-number">2.8.</span> <span class="toc-text">/proc/interrupts</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#proc-ioports"><span class="toc-number">2.9.</span> <span class="toc-text">/proc/ioports</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-init-d"><span class="toc-number">2.10.</span> <span class="toc-text">/etc/init.d</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-xinetd-d"><span class="toc-number">2.11.</span> <span class="toc-text">/etc/xinetd.d</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-rc-d"><span class="toc-number">2.12.</span> <span class="toc-text">/etc/rc.d</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#etc-Xll"><span class="toc-number">2.13.</span> <span class="toc-text">/etc/Xll</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usr-local"><span class="toc-number">2.14.</span> <span class="toc-text">/usr/local</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usr-lib"><span class="toc-number">2.15.</span> <span class="toc-text">/usr/lib</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usr-share"><span class="toc-number">2.16.</span> <span class="toc-text">/usr/share</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usr-share-doc"><span class="toc-number">2.17.</span> <span class="toc-text">/usr/share/doc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#usr-share-man"><span class="toc-number">2.18.</span> <span class="toc-text">/usr/share/man</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-adm"><span class="toc-number">2.19.</span> <span class="toc-text">/var/adm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-log"><span class="toc-number">2.20.</span> <span class="toc-text">/var/log</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#var-spool"><span class="toc-number">2.21.</span> <span class="toc-text">/var/spool</span></a></li></ol></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Linux常用目录结构　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/01/17/Linux-Directory/" data-title="Linux常用目录结构" data-url="http://yoursite.com/2017/01/17/Linux-Directory/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"muscleape"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+			/*设置embed.js链接*/
+            /*s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';*/
+			s.src = 'https://muscleape.github.io/js/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/01/20/System-V/" title="上一篇: Linux系统启动方式System-V">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/01/16/CentOSSunJDK/" title="下一篇: CentOS7系统卸载自带的OpenJDK并安装SUNJDK">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/centos7-systeminfo/">centos7查看系统信息命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/centos7-2-golang/">centos7部署搭建golang环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/CentOS6-5-MySQL5-6/">CentOS6.5安装MySQL5.6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/07/java-interview/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/23/Linux-SeLinux/">SeLinux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/Linux-Samba/">Linux与Windows资源共享服务Samba</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/vmdk-compress/">虚拟机体积压缩</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/Hexo-image/">Hexo图片处理插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/Linux-crontab/">Linux计划任务crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/System-V/">Linux系统启动方式System-V</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/17/Linux-Directory/">Linux常用目录结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/16/CentOSSunJDK/">CentOS7系统卸载自带的OpenJDK并安装SUNJDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/WhyWriteBlog/">为啥要整博客这玩意了呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/13/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 Muscleape
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        $("a").attr("target", "_blank");
+        $("#scroll a, #toc a").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

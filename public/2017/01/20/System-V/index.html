@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+
+    <!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="format-detection" content="telephone=no" />
+<meta name="author" content="Muscleape" />
+
+
+
+<meta name="description" content="Linux启动模式System V介绍">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux系统启动方式System-V">
+<meta property="og:url" content="http://yoursite.com/2017/01/20/System-V/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Linux启动模式System V介绍">
+<meta property="og:updated_time" content="2017-01-22T02:47:04.225Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux系统启动方式System-V">
+<meta name="twitter:description" content="Linux启动模式System V介绍">
+
+<link rel="apple-touch-icon" href= "/apple-touch-icon.png">
+
+
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+
+
+
+    <link rel="shortcut icon" href="/favicon.png">
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+
+    <link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+
+    <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+    <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-minimal.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Linux系统启动方式System-V | Hexo</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+    var yiliaConfig = {
+        fancybox: true,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script>
+        yiliaConfig.jquery_ui = [true, "//cdn.bootcss.com/jqueryui/1.10.4/jquery-ui.min.js", "//cdn.bootcss.com/jqueryui/1.10.4/css/jquery-ui.min.css"];
+    </script>
+
+
+
+    <script> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        <a href="/" class="profilepic">
+            <img src="/img/Muscleape.jpg" class="animated zoomIn">
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Muscleape</a></h1>
+        </hgroup>
+
+        
+
+        
+            <form id="search-form">
+            <input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+            <i class="fa fa-times" onclick="resetSearch()"></i>
+            </form>
+            <div id="local-search-result"></div>
+            <p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+        
+
+
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        <div class="icon-wrap icon-link hide" data-idx="2">
+                            <div class="loopback_l"></div>
+                            <div class="loopback_r"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        <li>友情链接</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a href="/">主页</a></li>
+                        
+                            <li><a href="/archives/">所有文章</a></li>
+                        
+                            <li><a href="/tags/">标签云</a></li>
+                        
+                            <li><a href="/about/">关于我</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" href="https://github.com/Muscleape" title="GitHub"></a>
+                            
+                                <a class="fa StackOverflow" href="http://stackoverflow.com/users/7098479/muscleape" title="StackOverflow"></a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS6-5/">CentOS6.5</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS7/">CentOS7</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GoLang/">GoLang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL5-6/">MySQL5.6</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Samba/">Samba</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SeLinux/">SeLinux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System-V/">System_V</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VMWare/">VMWare</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/VirtualBox/">VirtualBox</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/crontab/">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/image/">image</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk/">jdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/vmdk/">vmdk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/共享/">共享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/启动模式/">启动模式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/图片/">图片</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/定时任务/">定时任务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/开始/">开始</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/插件/">插件</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/系统信息/">系统信息</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/虚拟机/">虚拟机</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计划任务/">计划任务</a></li></ul>
+                    </div>
+                </section>
+                
+                
+                
+                <section class="switch-part switch-part3">
+                    <div id="js-friends">
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://hexo.io">Hexo</a>
+                    
+                      <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">GitHub</a>
+                    
+                    </div>
+                </section>
+                
+
+                
+                
+                <section class="switch-part switch-part4">
+                
+                    <div id="js-aboutme">专注于折腾</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>                
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Muscleape</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                <img src="/img/Muscleape.jpg" class="animated zoomIn">
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Muscleape</a></h1>
+            </hgroup>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/tags/">标签云</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fa GitHub" target="_blank" href="https://github.com/Muscleape" title="GitHub"></a>
+                            
+                                <a class="fa StackOverflow" target="_blank" href="http://stackoverflow.com/users/7098479/muscleape" title="StackOverflow"></a>
+                            
+                        </ul>
+            </nav>
+        </header>                
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
+</nav>
+      <div class="body-wrap"><article id="post-System-V" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/01/20/System-V/" class="article-date">
+      <time datetime="2017-01-20T02:02:37.000Z" itemprop="datePublished">2017-01-20</time>
+</a>
+
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux系统启动方式System-V
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+    <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/Linux/">Linux</a>
+    </div>
+
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/System-V/">System_V</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/启动模式/">启动模式</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p><excert in="" index="" |="" 首页摘要=""><br>Linux启动模式System V介绍<br><a id="more"></a></excert></p>
+<the rest="" of="" contents="">
+
+<p>System V启动方式，是Linux采用的启动方式，System V能够为不同的运行级别定义启动那些服务.<br>进入Linux系统后看到的黑乎乎的界面（开发模式），因为系统如果启动选择开发模式，<strong> 能减少启动时间，优化内存等 </strong>。但是通常刚安装完的Linux系统，看到的是图形化界面。</p>
+<blockquote>
+<p>CentOS下切换到开发模式，使用快捷键 Ctrl+F2,从开发模式返回图形界面使用Ctrl+F1<br>命令行里输入命令startx命令切换到图形界面</p>
+</blockquote>
+<h3 id="系统启动模式配置文件"><a href="#系统启动模式配置文件" class="headerlink" title="系统启动模式配置文件"></a>系统启动模式配置文件</h3><h4 id="etc-inittab"><a href="#etc-inittab" class="headerlink" title="/etc/inittab"></a>/etc/inittab</h4><p><strong> 设置系统启动模式，必须使用root身份登录才能修改 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[root@admin ~]:# vi /etc/inittab</div></pre></td></tr></table></figure></p>
+<p>输入后打开inittab文件，看到配置信息如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">\# inittab is only used by upstart for the default runlevel.</div><div class="line">\#</div><div class="line">\# ADDING OTHER CONFIGURATION HERE WILL HAVE NO EFFECT ON YOUR SYSTEM.</div><div class="line">\#</div><div class="line">\# System initialization is started by /etc/init/rcS.conf</div><div class="line">\#</div><div class="line">\# Individual runlevels are started by /etc/init/rc.conf</div><div class="line">\#</div><div class="line">\# Ctrl-Alt-Delete is handled by /etc/init/control-alt-delete.conf</div><div class="line">\#</div><div class="line">\# Terminal gettys are handled by /etc/init/tty.conf and /etc/init/serial.conf,</div><div class="line">\# with configuration in /etc/sysconfig/init.</div><div class="line">\#</div><div class="line">\# For information on how to write upstart event handlers, or how</div><div class="line">\# upstart works, see init(5), init(8), and initctl(8).</div><div class="line">\#</div><div class="line">\# Default runlevel. The runlevels used are:</div><div class="line">\#   0 - halt (Do NOT set initdefault to this)</div><div class="line">\#   1 - Single user mode</div><div class="line">\#   2 - Multiuser, without NFS (The same as 3, if you do not have networking)</div><div class="line">\#   3 - Full multiuser mode</div><div class="line">\#   4 - unused</div><div class="line">\#   5 - X11</div><div class="line">\#   6 - reboot (Do NOT set initdefault to this)</div><div class="line">\#</div><div class="line">id:5:initdefault:</div><div class="line">~</div></pre></td></tr></table></figure></p>
+<p>可以看到Linux系统中默认的系统启动基本一共有7种，分别是：</p>
+<h3 id="0：关机-不要设置这个！"><a href="#0：关机-不要设置这个！" class="headerlink" title="0：关机(不要设置这个！)"></a>0：关机(不要设置这个！)</h3><h3 id="1：单用户-类似于windows操作系统的安全模式"><a href="#1：单用户-类似于windows操作系统的安全模式" class="headerlink" title="1：单用户(类似于windows操作系统的安全模式)"></a>1：单用户(类似于windows操作系统的安全模式)</h3><h3 id="2：多用户状态没有网络服务"><a href="#2：多用户状态没有网络服务" class="headerlink" title="2：多用户状态没有网络服务"></a>2：多用户状态没有网络服务</h3><h3 id="3：多用户状态由网络服务-在做开发时，通常设置成这个启动级别，直接进入到命令行的界面"><a href="#3：多用户状态由网络服务-在做开发时，通常设置成这个启动级别，直接进入到命令行的界面" class="headerlink" title="3：多用户状态由网络服务(在做开发时，通常设置成这个启动级别，直接进入到命令行的界面)"></a>3：多用户状态由网络服务(在做开发时，通常设置成这个启动级别，直接进入到命令行的界面)</h3><h3 id="4：系统未使用保留给用户-不要设置这个！"><a href="#4：系统未使用保留给用户-不要设置这个！" class="headerlink" title="4：系统未使用保留给用户(不要设置这个！)"></a>4：系统未使用保留给用户(不要设置这个！)</h3><h3 id="5：图形界面-这是linux默认的启动级别，直接进入图形界面"><a href="#5：图形界面-这是linux默认的启动级别，直接进入图形界面" class="headerlink" title="5：图形界面(这是linux默认的启动级别，直接进入图形界面)"></a>5：图形界面(这是linux默认的启动级别，直接进入图形界面)</h3><h3 id="6：系统重启-不要设置这个！"><a href="#6：系统重启-不要设置这个！" class="headerlink" title="6：系统重启(不要设置这个！)"></a>6：系统重启(不要设置这个！)</h3><p>最后的一行设置系统默认的启动级别,5，也就是图形界面启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">id:5:initdefault:</div></pre></td></tr></table></figure></p>
+<p>如果需要修改默认级别为开发模式，只需要将5改成3，然后重新启动系统即可<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">将 id:5:initdefault:  改成   id:3:initdefault:</div></pre></td></tr></table></figure></p>
+<p><strong> 警告：千万不要将系统基本设置为0,4,6！！！！！！ </strong></p>
+<p>如果只是需要在Linux上做开发、部署项目的话，建议一般讲系统启动模式设置为开发模式</p>
+<p>System V启动方式，启动服务的脚本放在/etc/rc.d/init.d下，能够在/etc/rc.d目录下看到很多类似 rc0.d或rc2.d这样的目录，这就是为每个不同的运行级别定义启动哪些服务的目录，数字0 2就代表运行级别，进入这些目录，能看到很多链接文件，以S或K开头的这些文件分别表示在当前运行级别下是否开启这个服务，这些文件分别链接到/etc/rc.d/init.d/下面的很多可执行文件。<br><strong> 需要注意，在一些System V启动模式的操作系统上（如RedHat9），除了有/etc/rc.d/init.d/这个目录，还有/etc/init.d/这个目录，其实 ls -l一下就可以看到，/etc/init.d/这个目录本来就是链接到/etc/rc.d/init.d/的一个链接目录 </strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">** 如果有恶意用户将系统启动级别设置成0、4、6，我们该怎么解决这个问题？ **</div><div class="line"></div><div class="line">在linux系统启动界面，我们快速按键盘上的 【e】 按钮，然后进入到了grub引导界面(这个根据Linux的版本可能有不同，我的CentOS6.4是需要在启动时按F2进入引导界面，</div><div class="line">这个可以根据自己安装的Linux系统在开机时的提示进入引导界面)，</div><div class="line">在这个界面中选择第二个选项，然后再按下键盘上的 【e】按钮，在进入修改界面后，在最后输入【 1】(1前面有空格)</div><div class="line">这样，linux系统在启动时就会以 单用户级别 启动起来(为什么这里不将其设置成3或者5，是因为linux系统</div><div class="line">在启动时首先会去检查 /etc/inittab 文件的设定启动级别，如果在这时设置成5或者3，系统还是进不去，只能设置成1)</div><div class="line">在设置好以后，按下键盘的【b】按钮，系统就能重新启动，并进入 单用户级别，这样我们就可以按照之前的方法修改</div><div class="line">linux系统的启动级别。</div></pre></td></tr></table></figure></the>
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a href="/2017/01/20/System-V/">Linux系统启动方式System-V</a></p>
+        <p><span>文章作者:</span><a href="/" title="回到主页">Muscleape</a></p>
+        <p><span>发布时间:</span>2017-01-20, 10:02:37</p>
+        <p><span>最后更新:</span>2017-01-22, 10:47:04</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2017/01/20/System-V/" title="Linux系统启动方式System-V">http://yoursite.com/2017/01/20/System-V/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://yoursite.com/2017/01/20/System-V/　　作者: Muscleape" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <script> var clipboard = new Clipboard('.copy-path'); </script>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2017/01/20/Linux-crontab/">
+                    Linux计划任务crontab
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2017/01/17/Linux-Directory/">
+                    Linux常用目录结构
+                </a>
+            </div>
+        
+    </nav>
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#系统启动模式配置文件"><span class="toc-number">1.</span> <span class="toc-text">系统启动模式配置文件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#etc-inittab"><span class="toc-number">1.1.</span> <span class="toc-text">/etc/inittab</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0：关机-不要设置这个！"><span class="toc-number">2.</span> <span class="toc-text">0：关机(不要设置这个！)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1：单用户-类似于windows操作系统的安全模式"><span class="toc-number">3.</span> <span class="toc-text">1：单用户(类似于windows操作系统的安全模式)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2：多用户状态没有网络服务"><span class="toc-number">4.</span> <span class="toc-text">2：多用户状态没有网络服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3：多用户状态由网络服务-在做开发时，通常设置成这个启动级别，直接进入到命令行的界面"><span class="toc-number">5.</span> <span class="toc-text">3：多用户状态由网络服务(在做开发时，通常设置成这个启动级别，直接进入到命令行的界面)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4：系统未使用保留给用户-不要设置这个！"><span class="toc-number">6.</span> <span class="toc-text">4：系统未使用保留给用户(不要设置这个！)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5：图形界面-这是linux默认的启动级别，直接进入图形界面"><span class="toc-number">7.</span> <span class="toc-text">5：图形界面(这是linux默认的启动级别，直接进入图形界面)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6：系统重启-不要设置这个！"><span class="toc-number">8.</span> <span class="toc-text">6：系统重启(不要设置这个！)</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-6 i,
+        .toc-level-6 ol {
+            display: none !important;
+        }
+    </style>
+
+    <input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"true"];
+    </script>
+
+
+
+    
+<div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></i></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Linux系统启动方式System-V　| Hexo　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+
+
+
+
+    
+      <div class="duoshuo" id="comments">
+    <div id="comment-box" ></div>
+    <div class="ds-thread" id="ds-thread" data-thread-key="2017/01/20/System-V/" data-title="Linux系统启动方式System-V" data-url="http://yoursite.com/2017/01/20/System-V/"></div>
+    <script>
+        var duoshuoQuery = {short_name:"muscleape"};
+        var loadComment = function(){
+            var d = document, s = d.createElement('script');
+			/*设置embed.js链接*/
+            /*s.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';*/
+			s.src = 'https://muscleape.github.io/js/embed.js';
+            s.async = true; s.charset = 'UTF-8';
+            (d.head || d.body).appendChild(s);
+        }
+
+        
+    </script>
+    
+    <script> loadComment(); </script>
+
+</div>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2017/01/20/Linux-crontab/" title="上一篇: Linux计划任务crontab">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2017/01/17/Linux-Directory/" title="下一篇: Linux常用目录结构">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/centos7-systeminfo/">centos7查看系统信息命令</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/15/centos7-2-golang/">centos7部署搭建golang环境</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/13/CentOS6-5-MySQL5-6/">CentOS6.5安装MySQL5.6</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/07/java-interview/">java</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/23/Linux-SeLinux/">SeLinux</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/Linux-Samba/">Linux与Windows资源共享服务Samba</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/22/vmdk-compress/">虚拟机体积压缩</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/Hexo-image/">Hexo图片处理插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/Linux-crontab/">Linux计划任务crontab</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/20/System-V/">Linux系统启动方式System-V</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/17/Linux-Directory/">Linux常用目录结构</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/16/CentOSSunJDK/">CentOS7系统卸载自带的OpenJDK并安装SUNJDK</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/15/WhyWriteBlog/">为啥要整博客这玩意了呢？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/13/hello-world/">Hello World</a></li></ul>
+
+
+
+
+    <script>
+        
+    </script>
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                <i class="fa fa-copyright"></i> 
+                2017 Muscleape
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank" title="快速、简洁且高效的博客框架">Hexo</a>  Theme <a href="https://github.com/MOxFIVE/hexo-theme-yelee" target="_blank" title="简而不减 Hexo 双栏博客主题  v3.5">Yelee</a> by MOxFIVE <i class="fa fa-heart animated infinite pulse"></i>
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" title="本站到访数"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>| </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit"  title="本页阅读量"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+    </div>
+    
+    <script src="/js/GithubRepoWidget.js"></script>
+
+<script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+
+
+
+
+
+    <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide();" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    // Open in New Window
+    
+        $("a").attr("target", "_blank");
+        $("#scroll a, #toc a").removeAttr("target");
+    
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+  </div>
+</body>
+</html>

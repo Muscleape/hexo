@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/15/centos7-2-golang/</loc>
+    <lastmod>2017-03-15T13:37:24.283Z</lastmod>
+    <data>
+        <display>
+        <title>centos7部署搭建golang环境</title>
+        <pubTime>2017-03-15T07:59:59.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>CentOS7</tag>
+         
+        <tag>GoLang</tag>
+         
+         
+           
+             
+              <breadCrumb title="golang" url="http://yoursite.com/categories/golang/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/15/centos7-systeminfo/</loc>
+    <lastmod>2017-03-15T13:35:16.237Z</lastmod>
+    <data>
+        <display>
+        <title>centos7查看系统信息命令</title>
+        <pubTime>2017-03-15T08:27:36.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>CentOS7</tag>
+         
+        <tag>系统信息</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/13/CentOS6-5-MySQL5-6/</loc>
+    <lastmod>2017-03-13T04:25:43.977Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS6.5安装MySQL5.6</title>
+        <pubTime>2017-03-13T02:17:45.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>CentOS6.5</tag>
+         
+        <tag>MySQL5.6</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/02/07/java-interview/</loc>
+    <lastmod>2017-02-19T07:17:33.898Z</lastmod>
+    <data>
+        <display>
+        <title>java</title>
+        <pubTime>2017-02-07T07:14:35.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="http://yoursite.com/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/15/WhyWriteBlog/</loc>
+    <lastmod>2017-02-10T02:22:46.285Z</lastmod>
+    <data>
+        <display>
+        <title>为啥要整博客这玩意了呢？</title>
+        <pubTime>2017-01-15T03:34:00.000Z</pubTime>
+        
+        <tag>开始</tag>
+         
+         
+           
+             
+              <breadCrumb title="other" url="http://yoursite.com/categories/other/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/22/Linux-Samba/</loc>
+    <lastmod>2017-02-06T02:36:12.092Z</lastmod>
+    <data>
+        <display>
+        <title>Linux与Windows资源共享服务Samba</title>
+        <pubTime>2017-01-22T03:02:14.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>Samba</tag>
+         
+        <tag>共享</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/23/Linux-SeLinux/</loc>
+    <lastmod>2017-01-23T06:17:10.400Z</lastmod>
+    <data>
+        <display>
+        <title>SeLinux</title>
+        <pubTime>2017-01-23T01:56:56.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>SeLinux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/20/Hexo-image/</loc>
+    <lastmod>2017-01-22T02:53:47.835Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo图片处理插件</title>
+        <pubTime>2017-01-20T06:56:08.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>image</tag>
+         
+        <tag>图片</tag>
+         
+        <tag>插件</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="http://yoursite.com/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/20/Linux-crontab/</loc>
+    <lastmod>2017-01-22T02:48:00.248Z</lastmod>
+    <data>
+        <display>
+        <title>Linux计划任务crontab</title>
+        <pubTime>2017-01-20T06:54:44.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>crontab</tag>
+         
+        <tag>定时任务</tag>
+         
+        <tag>计划任务</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/17/Linux-Directory/</loc>
+    <lastmod>2017-01-22T02:47:33.772Z</lastmod>
+    <data>
+        <display>
+        <title>Linux常用目录结构</title>
+        <pubTime>2017-01-17T13:34:29.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/16/CentOSSunJDK/</loc>
+    <lastmod>2017-01-22T02:47:18.443Z</lastmod>
+    <data>
+        <display>
+        <title>CentOS7系统卸载自带的OpenJDK并安装SUNJDK</title>
+        <pubTime>2017-01-16T13:37:16.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>CentOS7</tag>
+         
+        <tag>Java</tag>
+         
+        <tag>jdk</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/20/System-V/</loc>
+    <lastmod>2017-01-22T02:47:04.225Z</lastmod>
+    <data>
+        <display>
+        <title>Linux系统启动方式System-V</title>
+        <pubTime>2017-01-20T02:02:37.000Z</pubTime>
+        
+        <tag>Linux</tag>
+         
+        <tag>启动模式</tag>
+         
+        <tag>System_V</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="http://yoursite.com/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/22/vmdk-compress/</loc>
+    <lastmod>2017-01-22T02:45:02.820Z</lastmod>
+    <data>
+        <display>
+        <title>虚拟机体积压缩</title>
+        <pubTime>2017-01-22T01:39:11.000Z</pubTime>
+        
+        <tag>vmdk</tag>
+         
+        <tag>VirtualBox</tag>
+         
+        <tag>VMWare</tag>
+         
+        <tag>虚拟机</tag>
+         
+         
+           
+             
+              <breadCrumb title="VirtualMachine" url="http://yoursite.com/categories/VirtualMachine/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+  <url>
+    <loc>http://yoursite.com/2017/01/13/hello-world/</loc>
+    <lastmod>2017-01-15T03:52:41.481Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2017-01-13T12:23:49.978Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+</urlset>
