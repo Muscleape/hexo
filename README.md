@@ -1,2 +1,2 @@
 # hexo
-my hexo blog files in my computer
+my hexo blog files
